@@ -1,6 +1,14 @@
 <div class="chat-container">
   <div class="chat-header">
     <h1>Chat Assistant</h1>
+    <div class="chat-actions">
+      <button class="action-button" (click)="openSaveDialog()" [disabled]="history.length === 0">
+        💾 Guardar
+      </button>
+      <button class="action-button" (click)="openLoadDialog()">
+        📂 Cargar
+      </button>
+    </div>
   </div>
   
   <div class="chat-messages" #chatHistory>
@@ -34,5 +42,41 @@
         <span class="send-icon">➤</span>
       </button>
     </form>
+  </div>
+</div>
+
+<!-- Save Dialog -->
+<div class="dialog-overlay" *ngIf="showSaveDialog">
+  <div class="dialog">
+    <h2>Guardar Conversación</h2>
+    <div class="dialog-content">
+      <input 
+        type="text" 
+        [(ngModel)]="chatTitle" 
+        placeholder="Título de la conversación"
+        class="dialog-input"
+      >
+    </div>
+    <div class="dialog-actions">
+      <button class="dialog-button" (click)="showSaveDialog = false">Cancelar</button>
+      <button class="dialog-button primary" (click)="saveChatHistory()" [disabled]="!chatTitle.trim()">
+        Guardar
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Load Dialog -->
+<div *ngIf="showLoadDialog" class="dialog-overlay">
+  <div class="dialog">
+    <h2>Cargar Conversación</h2>
+    <div class="history-list">
+      <div *ngFor="let history of availableHistories" 
+           class="history-item"
+           (click)="loadConversation(history)">
+        {{ history }}
+      </div>
+    </div>
+    <button (click)="showLoadDialog = false">Cancelar</button>
   </div>
 </div>

@@ -28,6 +28,7 @@ public class Program
 
         builder.Services.AddSingleton<IStateStore<string>>(new InMemoryStore<string>());
         builder.Services.AddSingleton<ISemanticKernelApp, SemanticKernelApp>();
+        builder.Services.AddSingleton<IChatHistoryService, ChatHistoryService>();
 
         // Add CORS services
         builder.Services.AddCors(options =>
