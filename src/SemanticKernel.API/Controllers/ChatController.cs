@@ -1,45 +1,46 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.SemanticKernel;
-using Microsoft.SemanticKernel.ChatCompletion;
+using SemanticKernel.API.Interfaces;
+using SemanticKernel.API.Models;
+using System.Text.Json;
 
-[ApiController]
-[Route("api/[controller]")]
+[ApiController, Route("api/[controller]")]
 public class ChatController : ControllerBase
 {
-    private readonly Kernel _kernel;
+    private readonly ISemanticKernelApp _semanticKernelApp;
 
-    public ChatController(Kernel kernel)
+    public ChatController(ISemanticKernelApp semanticKernelApp)
     {
-        _kernel = kernel;
+        _semanticKernelApp = semanticKernelApp;
     }
 
     [HttpPost]
-    public async Task<IActionResult> Post([FromBody] ChatRequest request)
+    [Consumes("application/json")]
+    public async Task<IActionResult> ProcessMessage(ChatRequest request)
     {
-        var chat = _kernel.GetRequiredService<IChatCompletionService>();
-        var history = new ChatHistory("Eres un asistente útil.");
-
-        foreach (var pair in request.History)
+        var session = request.SessionState switch
         {
-            history.AddUserMessage(pair.User);
-            history.AddAssistantMessage(pair.Assistant);
-        }
-
-        history.AddUserMessage(request.Message);
-        var result = await chat.GetChatMessageAsync(history);
-
-        return Ok(new { reply = result.Content });
+            { } sessionId => await _semanticKernelApp.GetSession(sessionId),
+            _ => await _semanticKernelApp.CreateSession(Guid.NewGuid())
+        };
+        var response = await session.ProcessRequest(request);
+        return Ok(response);
     }
-}
 
-public class ChatRequest
-{
-    public string Message { get; set; } = "";
-    public List<ChatMessagePair> History { get; set; } = new();
-}
-
-public class ChatMessagePair
-{
-    public string User { get; set; } = "";
-    public string Assistant { get; set; } = "";
+    [HttpPost("stream")]
+    [Consumes("application/json")]
+    public async Task ProcessStreamingMessage(ChatRequest request)
+    {
+        var session = request.SessionState switch
+        {
+            { } sessionId => await _semanticKernelApp.GetSession(sessionId),
+            _ => await _semanticKernelApp.CreateSession(Guid.NewGuid())
+        };
+        var response = Response;
+        response.Headers.Append("Content-Type", "application/x-ndjson");
+        await foreach (var delta in session.ProcessStreamingRequest(request))
+        {
+            await response.WriteAsync($"{JsonSerializer.Serialize(delta)}\r\n");
+            await response.Body.FlushAsync();
+        }
+    }
 }
