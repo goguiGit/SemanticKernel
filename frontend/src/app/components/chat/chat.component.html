@@ -1,0 +1,38 @@
+<div class="chat-container">
+  <div class="chat-header">
+    <h1>Chat Assistant</h1>
+  </div>
+  
+  <div class="chat-messages" #chatHistory>
+    <div *ngFor="let entry of history" class="message-pair">
+      <div class="message user-message">
+        <div class="message-content">
+          <div class="message-avatar">👤</div>
+          <div class="message-text">{{ entry.user }}</div>
+        </div>
+      </div>
+      <div class="message ai-message">
+        <div class="message-content">
+          <div class="message-avatar">🤖</div>
+          <div class="message-text">{{ entry.assistant }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chat-input-container">
+    <form (ngSubmit)="sendMessage()" class="chat-form">
+      <input 
+        type="text" 
+        [(ngModel)]="userInput" 
+        name="userInput"
+        placeholder="Type your message here..."
+        class="chat-input"
+        (keyup.enter)="sendMessage()"
+      >
+      <button type="submit" class="send-button" [disabled]="!userInput.trim()">
+        <span class="send-icon">➤</span>
+      </button>
+    </form>
+  </div>
+</div>
