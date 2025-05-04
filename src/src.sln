@@ -1,0 +1,48 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SemanticKernel.API", "SemanticKernel.API\SemanticKernel.API.csproj", "{613E9DAE-18CC-CB20-2376-22C64494B230}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SemanticKernel.BasicPromptSample", "SemanticKernel.BasicPromptSample\SemanticKernel.BasicPromptSample.csproj", "{1DBD3A23-24A3-FE68-4569-F1B878266B38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SemanticKernel.ChatHistorySample", "SemanticKernel.ChatHistorySample\SemanticKernel.ChatHistorySample.csproj", "{548932A5-D82B-D150-6E5E-E6C04D41136B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SemanticKernel.KernelFunctionsSample", "SemanticKernel.KernelFunctionsSample\SemanticKernel.KernelFunctionsSample.csproj", "{CBE40031-3B5E-EB0E-D4FA-25704471DCC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SemanticKernel.KernelPluginsSample", "SemanticKernel.KernelPluginsSample\SemanticKernel.KernelPluginsSample.csproj", "{B80D22F0-2188-7759-C247-9E297920236C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{613E9DAE-18CC-CB20-2376-22C64494B230}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{613E9DAE-18CC-CB20-2376-22C64494B230}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{613E9DAE-18CC-CB20-2376-22C64494B230}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{613E9DAE-18CC-CB20-2376-22C64494B230}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DBD3A23-24A3-FE68-4569-F1B878266B38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DBD3A23-24A3-FE68-4569-F1B878266B38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DBD3A23-24A3-FE68-4569-F1B878266B38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DBD3A23-24A3-FE68-4569-F1B878266B38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{548932A5-D82B-D150-6E5E-E6C04D41136B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{548932A5-D82B-D150-6E5E-E6C04D41136B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{548932A5-D82B-D150-6E5E-E6C04D41136B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{548932A5-D82B-D150-6E5E-E6C04D41136B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBE40031-3B5E-EB0E-D4FA-25704471DCC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBE40031-3B5E-EB0E-D4FA-25704471DCC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBE40031-3B5E-EB0E-D4FA-25704471DCC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBE40031-3B5E-EB0E-D4FA-25704471DCC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B80D22F0-2188-7759-C247-9E297920236C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B80D22F0-2188-7759-C247-9E297920236C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B80D22F0-2188-7759-C247-9E297920236C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B80D22F0-2188-7759-C247-9E297920236C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {662E9AE5-65E7-4B6A-9003-34E41EC9080C}
+	EndGlobalSection
+EndGlobal
