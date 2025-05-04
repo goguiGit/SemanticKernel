@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SemanticKernel.API.Interfaces;
-using SemanticKernel.API.Models;
 using System.Text.Json;
+using SemanticKernel.Domain;
+using SemanticKernel.Domain.Interfaces;
 
 [ApiController, Route("api/[controller]")]
 public class ChatController(ISemanticKernelApp semanticKernelApp) : ControllerBase

@@ -6,4 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SemanticKernel.Application\SemanticKernel.Application.csproj" />
+    <ProjectReference Include="..\SemanticKernel.Domain\SemanticKernel.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

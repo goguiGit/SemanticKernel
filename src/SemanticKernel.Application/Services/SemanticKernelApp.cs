@@ -2,20 +2,20 @@
 using Azure.AI.OpenAI;
 using Microsoft.Extensions.Options;
 using Microsoft.SemanticKernel;
-using SemanticKernel.API.Interfaces;
-using SemanticKernel.API.Options;
+using SemanticKernel.Application.Options;
+using SemanticKernel.Domain.Interfaces;
 
-namespace SemanticKernel.API.Services;
+namespace SemanticKernel.Application.Services;
 
 public class SemanticKernelApp : ISemanticKernelApp
 {
     private readonly IStateStore<string> _stateStore;
     private readonly Lazy<Kernel> _kernel;
-    private readonly IOptions<OpenIdSettings> _options;
+    private readonly IOptions<AzureOpenAiSettings> _options;
 
 
     public SemanticKernelApp(IStateStore<string> stateStore, 
-        IOptions<OpenIdSettings> options)
+        IOptions<AzureOpenAiSettings> options)
     {
         _stateStore = stateStore;
         _options = options;

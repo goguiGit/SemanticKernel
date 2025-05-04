@@ -1,0 +1,8 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+	</PropertyGroup>
+	<ItemGroup>
+    <ProjectReference Include="..\SemanticKernel.Domain\SemanticKernel.Domain.csproj" />
+  </ItemGroup>
+</Project>

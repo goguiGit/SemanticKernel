@@ -1,9 +1,9 @@
 ﻿using System.Text;
 using Microsoft.SemanticKernel;
-using SemanticKernel.API.Interfaces;
-using SemanticKernel.API.Models;
+using SemanticKernel.Domain;
+using SemanticKernel.Domain.Interfaces;
 
-namespace SemanticKernel.API.Services;
+namespace SemanticKernel.Application.Services;
 
 internal class SemanticKernelSession : ISemanticKernelSession
 {
@@ -55,7 +55,7 @@ internal class SemanticKernelSession : ISemanticKernelSession
         var chatFunction = _kernel.CreateFunctionFromPrompt(Prompt);
         var userInput = message.Messages.Last();
         var history = await _stateStore.GetStateAsync(Id) ?? "";
-        var arguments = new KernelArguments()
+        var arguments = new KernelArguments
         {
             ["history"] = history,
             ["userInput"] = userInput.Content,

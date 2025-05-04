@@ -1,4 +1,4 @@
-﻿namespace SemanticKernel.API.Interfaces;
+﻿namespace SemanticKernel.Domain.Interfaces;
 
 public interface ISemanticKernelApp
 {

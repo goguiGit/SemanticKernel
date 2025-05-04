@@ -1,6 +1,4 @@
-﻿using SemanticKernel.API.Models;
-
-namespace SemanticKernel.API.Interfaces;
+﻿namespace SemanticKernel.Domain.Interfaces;
 
 public interface ISemanticKernelSession
 {

@@ -1,9 +1,8 @@
-using Microsoft.Extensions.Options;
 using System.ComponentModel.DataAnnotations;
 
-namespace SemanticKernel.API.Options;
+namespace SemanticKernel.Application.Options;
 
-public class OpenIdSettings
+public class AzureOpenAiSettings
 {
     [Required(ErrorMessage = "EndPointUrl is required")]
     [Url(ErrorMessage = "EndPointUrl must be a valid URL")]

@@ -1,7 +1,7 @@
 ﻿using System.Text.Json.Serialization;
-using SemanticKernel.API.Converters;
+using SemanticKernel.Domain.Converters;
 
-namespace SemanticKernel.API.Models;
+namespace SemanticKernel.Domain;
 
 [JsonConverter(typeof(JsonCamelCaseEnumConverter<ChatRole>))]
 public enum ChatRole

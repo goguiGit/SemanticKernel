@@ -1,9 +1,9 @@
-using SemanticKernel.API.Interfaces;
-using SemanticKernel.API.Options;
-using SemanticKernel.API.Services;
 using System.Text.Json.Serialization;
 using System.Text.Json;
-using SemanticKernel.API.Models;
+using SemanticKernel.Application.Options;
+using SemanticKernel.Application.Services;
+using SemanticKernel.Domain;
+using SemanticKernel.Domain.Interfaces;
 
 namespace SemanticKernel.API;
 
@@ -15,7 +15,7 @@ public class Program
         var configuration = builder.Configuration;
 
         // Add services to the container.
-        builder.Services.AddOptions<OpenIdSettings>()
+        builder.Services.AddOptions<AzureOpenAiSettings>()
             .Configure(settings =>
             {
                 settings.DeploymentName = configuration.GetValue<string>("DeploymentName")!;

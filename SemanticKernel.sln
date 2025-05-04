@@ -18,6 +18,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SemanticKernel.KernelPlugin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SemanticKernel.API", "src\SemanticKernel.API\SemanticKernel.API.csproj", "{B8DFC1B1-16C4-428A-A10A-C0ADA5E6FBB5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{E44E3B9A-974B-4686-8796-3FBD912C1828}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SemanticKernel.Application", "src\SemanticKernel.Application\SemanticKernel.Application.csproj", "{A111A6F9-1215-4A77-B2C5-399C48E32098}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SemanticKernel.Domain", "src\SemanticKernel.Domain\SemanticKernel.Domain.csproj", "{2E7432F1-227C-4C94-BF04-1B832684965A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,9 +50,23 @@ Global
 		{B8DFC1B1-16C4-428A-A10A-C0ADA5E6FBB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8DFC1B1-16C4-428A-A10A-C0ADA5E6FBB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8DFC1B1-16C4-428A-A10A-C0ADA5E6FBB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A111A6F9-1215-4A77-B2C5-399C48E32098}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A111A6F9-1215-4A77-B2C5-399C48E32098}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A111A6F9-1215-4A77-B2C5-399C48E32098}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A111A6F9-1215-4A77-B2C5-399C48E32098}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E7432F1-227C-4C94-BF04-1B832684965A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E7432F1-227C-4C94-BF04-1B832684965A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E7432F1-227C-4C94-BF04-1B832684965A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E7432F1-227C-4C94-BF04-1B832684965A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0737511B-BB8E-4022-AF34-D0995664AB70} = {E44E3B9A-974B-4686-8796-3FBD912C1828}
+		{96AE9CC8-CE03-403A-94A9-9FDD502FF329} = {E44E3B9A-974B-4686-8796-3FBD912C1828}
+		{E063CDAD-AB4B-4D3F-99CC-30B21C4BED0E} = {E44E3B9A-974B-4686-8796-3FBD912C1828}
+		{592FD653-9CC5-4BEE-973C-F14A21C301A5} = {E44E3B9A-974B-4686-8796-3FBD912C1828}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E78F7B82-5E40-4D57-B3F5-A79D05F1742E}

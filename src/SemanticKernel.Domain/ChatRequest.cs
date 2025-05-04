@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace SemanticKernel.API.Models;
+namespace SemanticKernel.Domain;
 
 public record ChatRequest([property: JsonPropertyName("messages")] IList<ChatMessage> Messages)
 {

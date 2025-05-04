@@ -1,6 +1,6 @@
-﻿using SemanticKernel.API.Interfaces;
+﻿using SemanticKernel.Domain.Interfaces;
 
-namespace SemanticKernel.API.Services;
+namespace SemanticKernel.Application.Services;
 
 public class InMemoryStore<T> : IStateStore<T>
 {

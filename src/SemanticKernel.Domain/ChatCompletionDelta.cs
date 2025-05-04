@@ -1,8 +1,8 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace SemanticKernel.API.Models;
+namespace SemanticKernel.Domain;
 
-public record ChatCompletion([property: JsonPropertyName("message")] ChatMessage Message)
+public record ChatCompletionDelta([property: JsonPropertyName("delta")] ChatMessageDelta Delta)
 {
     [JsonInclude, JsonPropertyName("sessionState"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public Guid? SessionState;
