@@ -29,6 +29,17 @@ public class Program
         builder.Services.AddSingleton<IStateStore<string>>(new InMemoryStore<string>());
         builder.Services.AddSingleton<ISemanticKernelApp, SemanticKernelApp>();
 
+        // Add CORS services
+        builder.Services.AddCors(options =>
+        {
+            options.AddDefaultPolicy(policy =>
+            {
+                policy.WithOrigins("http://localhost:4200")
+                      .AllowAnyHeader()
+                      .AllowAnyMethod();
+            });
+        });
+
         builder.Services.AddControllers()
             .AddJsonOptions(o => o.JsonSerializerOptions
                 .Converters
@@ -37,6 +48,10 @@ public class Program
         var app = builder.Build();
 
         app.UseHttpsRedirection();
+        
+        // Enable CORS
+        app.UseCors();
+        
         app.MapControllers();
 
         app.Run();
