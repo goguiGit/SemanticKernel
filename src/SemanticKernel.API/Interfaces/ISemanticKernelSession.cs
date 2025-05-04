@@ -1,5 +1,4 @@
 ﻿using SemanticKernel.API.Models;
-using ChatCompletion = OpenAI.Chat.ChatCompletion;
 
 namespace SemanticKernel.API.Interfaces;
 

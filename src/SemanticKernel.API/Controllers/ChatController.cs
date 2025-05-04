@@ -4,23 +4,16 @@ using SemanticKernel.API.Models;
 using System.Text.Json;
 
 [ApiController, Route("api/[controller]")]
-public class ChatController : ControllerBase
+public class ChatController(ISemanticKernelApp semanticKernelApp) : ControllerBase
 {
-    private readonly ISemanticKernelApp _semanticKernelApp;
-
-    public ChatController(ISemanticKernelApp semanticKernelApp)
-    {
-        _semanticKernelApp = semanticKernelApp;
-    }
-
     [HttpPost]
     [Consumes("application/json")]
     public async Task<IActionResult> ProcessMessage(ChatRequest request)
     {
         var session = request.SessionState switch
         {
-            { } sessionId => await _semanticKernelApp.GetSession(sessionId),
-            _ => await _semanticKernelApp.CreateSession(Guid.NewGuid())
+            { } sessionId => await semanticKernelApp.GetSession(sessionId),
+            _ => semanticKernelApp.CreateSession(Guid.NewGuid())
         };
         var response = await session.ProcessRequest(request);
         return Ok(response);
@@ -32,8 +25,8 @@ public class ChatController : ControllerBase
     {
         var session = request.SessionState switch
         {
-            { } sessionId => await _semanticKernelApp.GetSession(sessionId),
-            _ => await _semanticKernelApp.CreateSession(Guid.NewGuid())
+            { } sessionId => await semanticKernelApp.GetSession(sessionId),
+            _ => semanticKernelApp.CreateSession(Guid.NewGuid())
         };
         var response = Response;
         response.Headers.Append("Content-Type", "application/x-ndjson");
